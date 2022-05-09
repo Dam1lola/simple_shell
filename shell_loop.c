@@ -1,7 +1,6 @@
 #include "main.h"
 /**
  * without_comment - deletes comments from the input
- *
  * @in: input string
  * Return: input without comments
  */
@@ -35,7 +34,6 @@ return (in);
 /**
  * shell_loop - Loop of shell
  * @datash: data relevant (av, input, args)
- *
  * Return: no return.
  */
 void shell_loop(data_shell *datash)
@@ -52,6 +50,12 @@ if (i_eof != -1)
 {
 input = without_comment(input);
 if (input == NULL)
+continue;
+
+if (check_syntax_error(datsh, input) == 1)
+}
+datash->status = 2;
+free(input);
 continue;
 }
 input = rep_var(input, datash);

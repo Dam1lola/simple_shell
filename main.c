@@ -1,7 +1,6 @@
 #include "main.h"
 /**
  * free_data - frees data structure
- *
  * @datash: data structure
  * Return: no return
  */
@@ -35,7 +34,7 @@ datash->status = 0;
 datash->counter = 1;
 
 for (i = 0; environ[i]; i++)
-		;
+	;
 
 datash->_environ = malloc(sizeof(char *) * (i + 1));
 
@@ -50,10 +49,8 @@ datash->pid = aux_itoa(getpid());
 
 /**
  * main - Entry point
- *
  * @ac: argument count
  * @av: argument vector
- *
  * Return: 0 on success.
  */
 int main(int ac, char **av)
@@ -66,6 +63,6 @@ set_data(&datash, av);
 shell_loop(&datash);
 free_data(&datash);
 if (datash.status < 0)
-return (255);
+	return (255);
 return (datash.status);
 }

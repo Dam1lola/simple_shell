@@ -1,7 +1,6 @@
 #include "main.h"
 /**
  * swap_char - swaps | and & for non-printed chars
- *
  * @input: input string
  * @bool: type of swap
  * Return: swapped string
@@ -10,6 +9,7 @@ char *swap_char(char *input, int bool)
 {
 int i;
 
+if (bool == 0)
 {
 for (i = 0; input[i]; i++)
 {
@@ -39,11 +39,9 @@ input[i] = (input[i] == 12 ? '&' : input[i]);
 }
 }
 return (input);
-}
 
 /**
  * add_nodes - add separators and command lines in the lists
- *
  * @head_s: head of separator list
  * @head_l: head of command lines list
  * @input: input string
@@ -68,9 +66,17 @@ i++;
 }
 }
 
+line = _strtok(input, ";|&");
+do {
+line = swap_char(line, 1);
+add_line_node_end(head_l, line);
+line = _strtok(NULL, ";|&");
+} while (line != NULL);
+
+}
+
 /**
  * go_next - go to the next command line stored
- *
  * @list_s: separator list
  * @list_l: command line list
  * @datash: data structure
@@ -113,14 +119,12 @@ ls_s = ls_s->next;
 /**
  * split_commands - splits command lines according to
  * the separators ;, | and &, and executes them
- *
  * @datash: data structure
  * @input: input string
  * Return: 0 to exit, 1 to continue
  */
 int split_commands(data_shell *datash, char *input)
 {
-
 sep_list *head_s, *list_s;
 line_list *head_l, *list_l;
 int loop;
@@ -159,7 +163,6 @@ return (1);
 
 /**
  * split_line - tokenizes the input string
- *
  * @input: input string.
  * Return: string splitted.
  */

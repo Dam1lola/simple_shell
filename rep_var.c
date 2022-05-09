@@ -1,7 +1,6 @@
 #include "main.h"
 /**
  * check_env - checks if the typed variable is an env variable
- *
  * @h: head of linked list
  * @in: input string
  * @data: data structure
@@ -42,7 +41,6 @@ add_rvar_node(h, j, NULL, 0);
 
 /**
  * check_vars - check if the typed variable is $$ or $?
- *
  * @h: head of the linked list
  * @in: input string
  * @st: last status of the Shell
@@ -55,7 +53,7 @@ int i, lst, lpd;
 
 lst = _strlen(st);
 lpd = _strlen(data->pid);
-<F11>
+
 for (i = 0; in[i]; i++)
 {
 if (in[i] == '$')
@@ -84,7 +82,6 @@ return (i);
 
 /**
  * replaced_input - replaces string into variables
- *
  * @head: head of the linked list
  * @input: input string
  * @new_input: new input string (replaced)
@@ -136,7 +133,6 @@ return (new_input);
 
 /**
  * rep_var - calls functions to replace string into vars
- *
  * @input: input string
  * @datash: data structure
  * Return: replaced string

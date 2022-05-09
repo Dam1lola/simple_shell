@@ -3,8 +3,7 @@
  * cmp_env_name - compares env variables names
  * with the name passed.
  * @nenv: name of the environment variable
- * @name: name passed
- *
+ * @name: name passed.
  * Return: 0 if are not equal. Another value if they are.
  */
 int cmp_env_name(const char *nenv, const char *name)
@@ -26,7 +25,6 @@ return (i + 1);
  * _getenv - get an environment variable
  * @name: name of the environment variable
  * @_environ: environment variable
- *
  * Return: value of the environment variable if is found.
  * In other case, returns NULL.
  */
@@ -67,8 +65,7 @@ for (i = 0; datash->_environ[i]; i++)
 {
 
 for (j = 0; datash->_environ[i][j]; j++)
-			;
-
+	;
 write(STDOUT_FILENO, datash->_environ[i], j);
 write(STDOUT_FILENO, "\n", 1);
 }
