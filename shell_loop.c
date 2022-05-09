@@ -19,9 +19,10 @@ free(in);
 return (NULL);
 }
 if (in[i - 1] == ' ' || in[i - 1] == '\t' || in[i - 1] == ';')
-				up_to = i;
+up_to = i;
 }
 }
+
 if (up_to != 0)
 {
 in = _realloc(in, i, up_to + 1);
