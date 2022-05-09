@@ -72,7 +72,6 @@ line = swap_char(line, 1);
 add_line_node_end(head_l, line);
 line = _strtok(NULL, ";|&");
 } while (line != NULL);
-
 }
 
 /**
@@ -180,7 +179,6 @@ if (tokens == NULL)
 write(STDERR_FILENO, ": allocation error\n", 18);
 exit(EXIT_FAILURE);
 }
-
 token = _strtok(input, TOK_DELIM);
 tokens[0] = token;
 
